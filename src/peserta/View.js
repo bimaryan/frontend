@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+const getLanguage = (language) => {
+    const languageMap = {
+        javascript: 'javascript',
+        python: 'python',
+        java: 'java',
+        csharp: 'csharp',
+        ruby: 'ruby',
+        php: 'php',
+        html: 'markup',
+        css: 'css',
+    };
+
+    return languageMap[language.toLowerCase()] || 'python';
+};
 
 function View() {
     const { judul } = useParams();
@@ -92,12 +109,23 @@ function View() {
                 <p
                     dangerouslySetInnerHTML={{ __html: jarak(task.deskripsi) }}
                 />
-                <div
-                    className="bg-gray-100 p-4 border border-gray-200 rounded-md"
-                    dangerouslySetInnerHTML={{
-                        __html: formatModulContent(task.modul),
-                    }}
-                />
+
+                <SyntaxHighlighter
+                    language={getLanguage(task.language || 'python')}
+                    style={solarizedlight}
+                >
+                    {task.modul}
+                </SyntaxHighlighter>
+
+                <div>
+                    <h3 className="text-lg font-bold mb-2">Modul Preview</h3>
+                    <div
+                        className="bg-gray-100 p-4 border border-gray-200 rounded-md"
+                        dangerouslySetInnerHTML={{
+                            __html: formatModulContent(task.modul),
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );
