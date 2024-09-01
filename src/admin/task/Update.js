@@ -19,7 +19,7 @@ function Update() {
         const fetchTask = async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/task/update/${id}`,
+                    `https://c14f-2a09-bac1-34c0-20-00-277-af.ngrok-free.app/api/task/update/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ function Update() {
 
         try {
             await axios.put(
-                `http://127.0.0.1:8000/api/task/update/${id}`,
+                `https://c14f-2a09-bac1-34c0-20-00-277-af.ngrok-free.app/api/task/update/${id}`,
                 task,
                 {
                     headers: {

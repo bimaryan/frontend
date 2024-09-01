@@ -33,7 +33,7 @@ function Create() {
 
         try {
             await axios.post(
-                'http://127.0.0.1:8000/api/task/create',
+                'https://c14f-2a09-bac1-34c0-20-00-277-af.ngrok-free.app/api/task/create',
                 {
                     judul: judul,
                     deskripsi: deskripsi,
