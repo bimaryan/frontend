@@ -31,7 +31,7 @@ function Task() {
     const handleDelete = async (taskId) => {
         try {
             await axios.delete(
-                `http://127.0.0.1:8000/api/task/delete/${taskId}`,
+                `https://c14f-2a09-bac1-34c0-20-00-277-af.ngrok-free.app/api/task/delete/${taskId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
