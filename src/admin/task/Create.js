@@ -62,51 +62,53 @@ function Create() {
     };
 
     return (
-        <div className="p-6 max-w-screen-xl mx-auto bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Create Task</h2>
-            {error && <p className="text-red-500 mb-4">{error}</p>}
-            {success && <p className="text-green-500 mb-4">{success}</p>}
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                    <label className="block text-sm font-medium mb-1">
-                        Judul:
-                    </label>
-                    <input
-                        type="text"
-                        value={judul}
-                        onChange={(e) => setJudul(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                    />
-                </div>
-                <div>
-                    <label className="block text-sm font-medium mb-1">
-                        Deskripsi:
-                    </label>
-                    <textarea
-                        value={deskripsi}
-                        onChange={(e) => setDeskripsi(e.target.value)}
-                        rows="5"
-                        className="w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                    />
-                </div>
-                <div>
-                    <label className="block text-sm font-medium mb-1">
-                        Modul:
-                    </label>
-                    <textarea
-                        value={modul}
-                        onChange={(e) => setModul(e.target.value)}
-                        rows="3"
-                        className="w-full p-2 border border-gray-300 rounded-md shadow-sm"
-                    />
-                </div>
-                <button
-                    type="submit"
-                    className="w-full py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
-                >
-                    Create Task
-                </button>
-            </form>
+        <div className="p-6 max-w-screen-xl mx-auto">
+            <div className="p-4 bg-white shadow-lg rounded-lg">
+                <h2 className="text-2xl font-bold mb-4">Create Task</h2>
+                {error && <p className="text-red-500 mb-4">{error}</p>}
+                {success && <p className="text-green-500 mb-4">{success}</p>}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium mb-1">
+                            Judul:
+                        </label>
+                        <input
+                            type="text"
+                            value={judul}
+                            onChange={(e) => setJudul(e.target.value)}
+                            className="w-full p-2 border border-gray-300 rounded-md shadow-sm"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium mb-1">
+                            Deskripsi:
+                        </label>
+                        <textarea
+                            value={deskripsi}
+                            onChange={(e) => setDeskripsi(e.target.value)}
+                            rows="5"
+                            className="w-full p-2 border border-gray-300 rounded-md shadow-sm"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium mb-1">
+                            Modul:
+                        </label>
+                        <textarea
+                            value={modul}
+                            onChange={(e) => setModul(e.target.value)}
+                            rows="3"
+                            className="w-full p-2 border border-gray-300 rounded-md shadow-sm"
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="w-full py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
+                    >
+                        Create Task
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }

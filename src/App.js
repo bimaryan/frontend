@@ -8,6 +8,8 @@ import Create from './admin/task/Create';
 import Update from './admin/task/Update';
 import Navbar from './layout/Navbar'; // Import ProtectedRoute
 import ProtectedRoute from './auth/PrivateRoute';
+import Home from './peserta/Home';
+import View from './peserta/View';
 
 function App() {
     return (
@@ -46,6 +48,26 @@ function App() {
                             <ProtectedRoute
                                 element={<Task />}
                                 allowedRoles={['1']}
+                            />
+                        }
+                    />
+
+                    {/* HALAMAN PESERTA */}
+                    <Route
+                        path="/home"
+                        element={
+                            <ProtectedRoute
+                                element={<Home />}
+                                allowedRoles={['2']}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/home/task/:judul"
+                        element={
+                            <ProtectedRoute
+                                element={<View />}
+                                allowedRoles={['2']}
                             />
                         }
                     />
