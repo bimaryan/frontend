@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Login from './auth/Login';
+import Register from './auth/Register';
+import Task from './admin/task/Task';
+import Create from './admin/task/Create';
+import Update from './admin/task/Update';
+import Navbar from './layout/Navbar'; // Import ProtectedRoute
+import ProtectedRoute from './auth/PrivateRoute';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <BrowserRouter>
+                <Navbar />
+                <br />
+                <br />
+                <br />
+                <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+
+                    {/* HALAMAN ADMIN */}
+                    <Route
+                        path="/admin/task/create"
+                        element={
+                            <ProtectedRoute
+                                element={<Create />}
+                                allowedRoles={['1']}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/admin/task/update/:id"
+                        element={
+                            <ProtectedRoute
+                                element={<Update />}
+                                allowedRoles={['1']}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/admin/task/"
+                        element={
+                            <ProtectedRoute
+                                element={<Task />}
+                                allowedRoles={['1']}
+                            />
+                        }
+                    />
+                </Routes>
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;
