@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function View() {
     const { judul } = useParams();
@@ -75,7 +75,19 @@ function View() {
     return (
         <div className="p-6 max-w-screen-xl mx-auto">
             <div className="p-4 bg-white shadow-lg rounded-lg space-y-3">
-                <h2 className="text-2xl font-bold">{task.judul}</h2>
+                <div className="flex justify-between items-center">
+                    <div>
+                        <h2 className="text-2xl font-bold">{task.judul}</h2>
+                    </div>
+                    <div>
+                        <Link
+                            to="/"
+                            className="px-3 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded-lg"
+                        >
+                            <i className="bi bi-arrow-left"></i> Kembali
+                        </Link>
+                    </div>
+                </div>
                 <hr />
                 <p
                     dangerouslySetInnerHTML={{ __html: jarak(task.deskripsi) }}

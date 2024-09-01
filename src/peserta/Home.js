@@ -41,7 +41,7 @@ function Home() {
     }, [token]);
 
     const handleCardClick = (judul) => {
-        navigate(`/home/task/${encodeURIComponent(judul)}`);
+        navigate(`/task/${encodeURIComponent(judul)}`);
     };
 
     return (

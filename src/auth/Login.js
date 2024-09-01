@@ -30,8 +30,6 @@ function Login() {
             if (role_id === '1') {
                 navigate('/admin');
             } else if (role_id === '2') {
-                navigate('/home');
-            } else {
                 navigate('/');
             }
         } catch (error) {

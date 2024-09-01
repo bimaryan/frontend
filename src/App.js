@@ -54,7 +54,7 @@ function App() {
 
                     {/* HALAMAN PESERTA */}
                     <Route
-                        path="/home"
+                        path="/"
                         element={
                             <ProtectedRoute
                                 element={<Home />}
@@ -63,7 +63,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="/home/task/:judul"
+                        path="/task/:judul"
                         element={
                             <ProtectedRoute
                                 element={<View />}
